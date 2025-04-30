@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Materials | AHU English Club</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#74dbdb',
+                        secondary: '#3b6fd1',
+                        accent: '#4a04c2',
+                        purple: '#9b68f2',
+                        darkpurple: '#63059e',
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 2s infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #74dbdb 0%, #3b6fd1 50%, #4a04c2 100%);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: currentColor;
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .hamburger-menu {
+            transition: transform 0.3s;
+        }
+        
+        .hamburger-menu.active {
+            transform: rotate(90deg);
+        }
+        
+        .dark .dark\:bg-darkmode {
+            background-color: #1a1a2e;
+        }
+        
+        .dark .dark\:text-light {
+            color: #f8f9fa;
+        }
+        
+        .dark .dark\:bg-card-dark {
+            background-color: #16213e;
+        }
+        
+        .toggle-checkbox:checked {
+            right: 0;
+            background-color: #4a04c2;
+        }
+        
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #9b68f2;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .tab-button.active {
+            background-color: #4a04c2;
+            color: white;
+        }
+        
+        .material-category {
+            scroll-margin-top: 100px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-darkmode dark:text-light">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md dark:bg-card-dark sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white font-bold text-xl mr-2">AE</div>
+                    <span class="text-xl font-bold text-accent dark:text-purple">AHU English Club</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium">Home</a>
+                    <div class="relative group">
+                        <button class="nav-link text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium flex items-center">
+                            Materials <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-48 bg-white dark:bg-card-dark rounded-md shadow-lg py-1 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                            <a href="#grammar" class="block px-4 py-2 text-gray-700 hover:bg-primary hover:text-white dark:text-gray-300 dark:hover:bg-purple">Grammar</a>
+                            <a href="#vocabulary" class="block px-4 py-2 text-gray-700 hover:bg-primary hover:text-white dark:text-gray-300 dark:hover:bg-purple">Vocabulary</a>
+                            <a href="#pronunciation" class="block px-4 py-2 text-gray-700 hover:bg-primary hover:text-white dark:text-gray-300 dark:hover:bg-purple">Pronunciation</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium">About</a>
+                    <a href="events.html" class="nav-link text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium">Events</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium">Contact</a>
+                    <a href="search.html" class="text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <!-- Dark Mode Toggle -->
+                    <div class="flex items-center">
+                        <span class="mr-2 text-sm text-gray-600 dark:text-gray-300"><i class="fas fa-sun"></i></span>
+                        <div class="relative inline-block w-10 mr-2 align-middle select-none">
+                            <input type="checkbox" id="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+                            <label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                        </div>
+                        <span class="text-sm text-gray-600 dark:text-gray-300"><i class="fas fa-moon"></i></span>
+                    </div>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <a href="search.html" class="text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple mr-4">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <button id="menu-btn" class="hamburger-menu text-gray-700 dark:text-gray-300 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-card-dark shadow-lg">
+            <div class="container mx-auto px-4 py-2">
+                <a href="index.html" class="block py-2 text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium">Home</a>
+                <div class="py-2">
+                    <button class="flex items-center justify-between w-full text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium">
+                        <span>Materials</span>
+                        <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="pl-4 mt-1 hidden">
+                        <a href="#grammar" class="block py-2 text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple">Grammar</a>
+                        <a href="#vocabulary" class="block py-2 text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple">Vocabulary</a>
+                        <a href="#pronunciation" class="block py-2 text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple">Pronunciation</a>
+                    </div>
+                </div>
+                <a href="about.html" class="block py-2 text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium">About</a>
+                <a href="events.html" class="block py-2 text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium">Events</a>
+                <a href="contact.html" class="block py-2 text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium">Contact</a>
+                <div class="flex items-center justify-between py-2">
+                    <span class="text-gray-700 dark:text-gray-300">Theme:</span>
+                    <div class="flex items-center">
+                        <span class="mr-2 text-sm text-gray-600 dark:text-gray-300"><i class="fas fa-sun"></i></span>
+                        <div class="relative inline-block w-10 mr-2 align-middle select-none">
+                            <input type="checkbox" id="toggle-mobile" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+                            <label for="toggle-mobile" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                        </div>
+                        <span class="text-sm text-gray-600 dark:text-gray-300"><i class="fas fa-moon"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Materials Header -->
+    <header class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Learning Materials</h1>
+            <p class="text-xl max-w-3xl mx-auto">Explore our comprehensive collection of English learning resources. Improve your grammar, expand your vocabulary, and perfect your pronunciation.</p>
+        </div>
+    </header>
+
+    <!-- Materials Navigation Tabs -->
+    <div class="sticky top-16 bg-white dark:bg-card-dark shadow-sm z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex overflow-x-auto scrollbar-hide">
+                <a href="#grammar" class="tab-button px-6 py-4 font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-300">
+                    <i class="fas fa-book mr-2"></i> Grammar
+                </a>
+                <a href="#vocabulary" class="tab-button px-6 py-4 font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-300">
+                    <i class="fas fa-spell-check mr-2"></i> Vocabulary
+                </a>
+                <a href="#pronunciation" class="tab-button px-6 py-4 font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-300">
+                    <i class="fas fa-microphone-alt mr-2"></i> Pronunciation
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- Grammar Section -->
+        <section id="grammar" class="material-category mb-20">
+            <div class="flex items-center mb-8">
+                <div class="w-12 h-12 rounded-full bg-primary bg-opacity-20 text-primary flex items-center justify-center mr-4">
+                    <i class="fas fa-book text-xl"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-accent dark:text-purple">Grammar Resources</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Grammar Resource 1 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-primary text-white text-xs px-3 py-1 rounded-full">Beginner</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2">PDF + Exercises</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">English Tenses Masterclass</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Comprehensive guide to all 12 English tenses with clear explanations, timelines, and practice exercises.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400"><i class="fas fa-file-pdf mr-1"></i> 15 pages</span>
+                            <a href="#" class="text-accent dark:text-purple font-medium hover:underline flex items-center">
+                                Download <i class="fas fa-download ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grammar Resource 2 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-secondary text-white text-xs px-3 py-1 rounded-full">Intermediate</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2">Interactive</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Conditionals Explained</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Master the zero, first, second, third, and mixed conditionals with our interactive exercises.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400"><i class="fas fa-laptop mr-1"></i> Web Module</span>
+                            <a href="#" class="text-accent dark:text-purple font-medium hover:underline flex items-center">
+                                Access <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grammar Resource 3 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-purple text-white text-xs px-3 py-1 rounded-full">Advanced</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2">Video Lesson</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Subjunctive Mood</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Learn how to use the subjunctive mood correctly in formal English with practical examples.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400"><i class="fas fa-play-circle mr-1"></i> 25 min</span>
+                            <a href="#" class="text-accent dark:text-purple font-medium hover:underline flex items-center">
+                                Watch <i class="fas fa-play ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grammar Resource 4 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-primary text-white text-xs px-3 py-1 rounded-full">Beginner</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2">Cheat Sheet</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Articles (A/An/The)</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Simple rules and exceptions for using articles correctly in English sentences.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400"><i class="fas fa-file-alt mr-1"></i> 5 pages</span>
+                            <a href="#" class="text-accent dark:text-purple font-medium hover:underline flex items-center">
+                                Download <i class="fas fa-download ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grammar Resource 5 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-secondary text-white text-xs px-3 py-1 rounded-full">Intermediate</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2">Exercises</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Reported Speech</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Practice transforming direct speech into reported speech with our comprehensive worksheet.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400"><i class="fas fa-tasks mr-1"></i> 20 questions</span>
+                            <a href="#" class="text-accent dark:text-purple font-medium hover:underline flex items-center">
+                                Practice <i class="fas fa-pencil-alt ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grammar Resource 6 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-purple text-white text-xs px-3 py-1 rounded-full">Advanced</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2">Reference Guide</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Phrasal Verbs Collection</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">200+ common phrasal verbs with meanings, examples, and contextual usage.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400"><i class="fas fa-book-open mr-1"></i> 30 pages</span>
+                            <a href="#" class="text-accent dark:text-purple font-medium hover:underline flex items-center">
+                                View <i class="fas fa-eye ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-accent hover:bg-darkpurple text-white font-bold py-3 px-6 rounded-full transition duration-300">View All Grammar Resources</a>
+            </div>
+        </section>
+
+        <!-- Vocabulary Section -->
+        <section id="vocabulary" class="material-category mb-20">
+            <div class="flex items-center mb-8">
+                <div class="w-12 h-12 rounded-full bg-secondary bg-opacity-20 text-secondary flex items-center justify-center mr-4">
+                    <i class="fas fa-spell-check text-xl"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-accent dark:text-purple">Vocabulary Resources</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Vocabulary Resource 1 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-primary text-white text-xs px-3 py-1 rounded-full">General</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2">Flashcards</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">500 Most Common Words</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Essential vocabulary for everyday communication, organized by frequency and category.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400"><i class="fas fa-layer-group mr-1"></i> 5 sets</span>
+                            <a href="#" class="text-accent dark:text-purple font-medium hover:underline flex items-center">
+                                Study <i class="fas fa-graduation-cap ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Vocabulary Resource 2 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-secondary text-white text-xs px-3 py-1 rounded-full">Academic</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2">PDF</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Academic Word List (AWL)</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">570 word families that frequently appear in academic texts across various disciplines.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400"><i class="fas fa-file-pdf mr-1"></i> 25 pages</span>
+                            <a href="#" class="text-accent dark:text-purple font-medium hover:underline flex items-center">
+                                Download <i class="fas fa-download ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Vocabulary Resource 3 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-purple text-white text-xs px-3 py-1 rounded-full">Business</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2">Interactive</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Business English Vocabulary</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Key terms and phrases for meetings, negotiations, presentations, and corporate communication.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400"><i class="fas fa-laptop mr-1"></i> Web Module</span>
+                            <a href="#" class="text-accent dark:text-purple font-medium hover:underline flex items-center">
+                                Access <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Vocabulary Resource 4 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-primary text-white text-xs px-3 py-1 rounded-full">IELTS</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">IELTS Topic Vocabulary</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Specialized vocabulary organized by common IELTS topics (education, environment, technology, etc.)</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400"><i class="fas fa-file-word mr-1"></i> 18 topics</span>
+                            <a href="#" class="text-accent dark:text-purple font-medium hover:underline flex items-center">
+                                View <i class="fas fa-eye ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Vocabulary Resource 5 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-secondary text-white text-xs px-3 py-1 rounded-full">Idioms</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2">Video Series</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Common English Idioms</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Learn 100+ frequently used idioms with explanations and examples in context.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400"><i class="fas fa-play-circle mr-1"></i> 10 videos</span>
+                            <a href="#" class="text-accent dark:text-purple font-medium hover:underline flex items-center">
+                                Watch <i class="fas fa-play ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Vocabulary Resource 6 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-purple text-white text-xs px-3 py-1 rounded-full">Thesaurus</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2">Interactive</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Synonyms & Antonyms</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Expand your vocabulary by learning word relationships and alternatives for common terms.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400"><i class="fas fa-sync-alt mr-1"></i> 500+ words</span>
+                            <a href="#" class="text-accent dark:text-purple font-medium hover:underline flex items-center">
+                                Explore <i class="fas fa-search ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-accent hover:bg-darkpurple text-white font-bold py-3 px-6 rounded-full transition duration-300">View All Vocabulary Resources</a>
+            </div>
+        </section>
+
+        <!-- Pronunciation Section -->
+        <section id="pronunciation" class="material-category">
+            <div class="flex items-center mb-8">
+                <div class="w-12 h-12 rounded-full bg-purple bg-opacity-20 text-purple flex items-center justify-center mr-4">
+                    <i class="fas fa-microphone-alt text-xl"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-accent dark:text-purple">Pronunciation Resources</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Pronunciation Resource 1 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-primary text-white text-xs px-3 py-1 rounded-full">IPA Guide</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2">Reference</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">International Phonetic Alphabet</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Complete guide to IPA symbols for English sounds with audio examples and mouth diagrams.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400"><i class="fas fa-file-audio mr-1"></i> 44 sounds</span>
+                            <a href="#" class="text-accent dark:text-purple font-medium hover:underline flex items-center">
+                                Listen <i class="fas fa-headphones ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pronunciation Resource 2 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-secondary text-white text-xs px-3 py-1 rounded-full">Minimal Pairs</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2">Practice</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Tricky Sound Pairs</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Practice distinguishing between similar sounds (/l/ vs /r/, /θ/ vs /ð/, etc.) with audio exercises.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400"><i class="fas fa-random mr-1"></i> 15 pairs</span>
+                            <a href="#" class="text-accent dark:text-purple font-medium hover:underline flex items-center">
+                                Practice <i class="fas fa-volume-up ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pronunciation Resource 3 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-purple text-white text-xs px-3 py-1 rounded-full">Accent Training</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2">Video Course</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">American Accent Training</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">12-part video series covering stress, rhythm, intonation, and key pronunciation features.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400"><i class="fas fa-film mr-1"></i> 12 lessons</span>
+                            <a href="#" class="text-accent dark:text-purple font-medium hover:underline flex items-center">
+                                Watch <i class="fas fa-play ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pronunciation Resource 4 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-primary text-white text-xs px-3 py-1 rounded-full">Tongue Twisters</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2">Fun Practice</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Pronunciation Challenges</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Collection of tongue twisters organized by target sounds for fun pronunciation practice.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400"><i class="fas fa-comment-dots mr-1"></i> 50+</span>
+                            <a href="#" class="text-accent dark:text-purple font-medium hover:underline flex items-center">
+                                Try <i class="fas fa-bolt ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pronunciation Resource 5 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-secondary text-white text-xs px-3 py-1 rounded-full">Connected Speech</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2">Audio Guide</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Natural Speech Patterns</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Learn how words connect in natural speech through linking, reduction, and assimilation.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400"><i class="fas fa-wave-square mr-1"></i> 8 patterns</span>
+                            <a href="#" class="text-accent dark:text-purple font-medium hover:underline flex items-center">
+                                Listen <i class="fas fa-headphones ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pronunciation Resource 6 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-purple text-white text-xs px-3 py-1 rounded-full">Recording Tool</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2">Interactive</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Pronunciation Checker</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Record your speech and compare it to native speaker models with visual feedback.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400"><i class="fas fa-microphone mr-1"></i> Web Tool</span>
+                            <a href="#" class="text-accent dark:text-purple font-medium hover:underline flex items-center">
+                                Try Now <i class="fas fa-microphone-alt ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-accent hover:bg-darkpurple text-white font-bold py-3 px-6 rounded-full transition duration-300">View All Pronunciation Resources</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white font-bold text-xl mr-2">AE</div>
+                        <span class="text-xl font-bold">AHU English Club</span>
+                    </div>
+                    <p class="text-gray-400">Improving English skills through community, resources, and cultural exchange since 2010.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-primary transition duration-300">Home</a></li>
+                        <li><a href="#grammar" class="text-gray-400 hover:text-primary transition duration-300">Grammar</a></li>
+                        <li><a href="#vocabulary" class="text-gray-400 hover:text-primary transition duration-300">Vocabulary</a></li>
+                        <li><a href="#pronunciation" class="text-gray-400 hover:text-primary transition duration-300">Pronunciation</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-primary transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition duration-300">Learning Materials</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition duration-300">Test Preparation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition duration-300">Pronunciation Guide</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition duration-300">Writing Tips</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition duration-300">Recommended Books</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Subscribe to get updates on events and learning resources.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg focus:outline-none text-gray-800 w-full">
+                        <button type="submit" class="bg-primary hover:bg-opacity-90 text-white px-4 py-2 rounded-r-lg transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary transition duration-300"><i class="fab fa-weixin"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition duration-300"><i class="fab fa-weibo"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition duration-300"><i class="fab fa-qq"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition duration-300"><i class="fab fa-bilibili"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 AHU English Club. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-primary transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition duration-300">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition duration-300">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('active');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Dark Mode Toggle
+        const toggle = document.getElementById('toggle');
+        const toggleMobile = document.getElementById('toggle-mobile');
+        const html = document.documentElement;
+        
+        // Check for saved user preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            html.classList.add('dark');
+            toggle.checked = true;
+            if (toggleMobile) toggleMobile.checked = true;
+        }
+        
+        // Toggle dark mode
+        function toggleDarkMode() {
+            html.classList.toggle('dark');
+            const isDark = html.classList.contains('dark');
+            localStorage.setItem('darkMode', isDark);
+        }
+        
+        toggle.addEventListener('change', toggleDarkMode);
+        if (toggleMobile) toggleMobile.addEventListener('change', toggleDarkMode);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active tab
+                    document.querySelectorAll('.tab-button').forEach(tab => {
+                        tab.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+        
+        // Set active tab based on scroll position
+        window.addEventListener('scroll', () => {
+            const grammarSection = document.getElementById('grammar');
+            const vocabularySection = document.getElementById('vocabulary');
+            const pronunciationSection = document.getElementById('pronunciation');
+            
+            const scrollPosition = window.scrollY + 150;
+            
+            document.querySelectorAll('.tab-button').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            if (scrollPosition >= pronunciationSection.offsetTop) {
+                document.querySelector('a[href="#pronunciation"]').classList.add('active');
+            } else if (scrollPosition >= vocabularySection.offsetTop) {
+                document.querySelector('a[href="#vocabulary"]').classList.add('active');
+            } else if (scrollPosition >= grammarSection.offsetTop) {
+                document.querySelector('a[href="#grammar"]').classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>

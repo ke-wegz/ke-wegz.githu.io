@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | AHU English Club</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#74dbdb',
+                        secondary: '#3b6fd1',
+                        accent: '#4a04c2',
+                        purple: '#9b68f2',
+                        darkpurple: '#63059e',
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 2s infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #74dbdb 0%, #3b6fd1 50%, #4a04c2 100%);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: currentColor;
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .hamburger-menu {
+            transition: transform 0.3s;
+        }
+        
+        .hamburger-menu.active {
+            transform: rotate(90deg);
+        }
+        
+        .dark .dark\:bg-darkmode {
+            background-color: #1a1a2e;
+        }
+        
+        .dark .dark\:text-light {
+            color: #f8f9fa;
+        }
+        
+        .dark .dark\:bg-card-dark {
+            background-color: #16213e;
+        }
+        
+        .toggle-checkbox:checked {
+            right: 0;
+            background-color: #4a04c2;
+        }
+        
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #9b68f2;
+        }
+        
+        .search-results {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .dark .search-results {
+            background: #16213e;
+            border: 1px solid #2d3748;
+        }
+        
+        .search-result-item {
+            padding: 10px 15px;
+            border-bottom: 1px solid #e2e8f0;
+            cursor: pointer;
+        }
+        
+        .dark .search-result-item {
+            border-bottom: 1px solid #2d3748;
+        }
+        
+        .search-result-item:hover {
+            background: #f7fafc;
+        }
+        
+        .dark .search-result-item:hover {
+            background: #1e293b;
+        }
+        
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .search-highlight {
+            background-color: #fff176;
+            padding: 0 2px;
+        }
+        
+        .dark .search-highlight {
+            background-color: #f59e0b;
+            color: #1e293b;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-darkmode dark:text-light">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md dark:bg-card-dark sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white font-bold text-xl mr-2">AE</div>
+                    <span class="text-xl font-bold text-accent dark:text-purple">AHU English Club</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium">Home</a>
+                    <div class="relative group">
+                        <button class="nav-link text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium flex items-center">
+                            Materials <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-48 bg-white dark:bg-card-dark rounded-md shadow-lg py-1 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                            <a href="materials.html#grammar" class="block px-4 py-2 text-gray-700 hover:bg-primary hover:text-white dark:text-gray-300 dark:hover:bg-purple">Grammar</a>
+                            <a href="materials.html#vocabulary" class="block px-4 py-2 text-gray-700 hover:bg-primary hover:text-white dark:text-gray-300 dark:hover:bg-purple">Vocabulary</a>
+                            <a href="materials.html#pronunciation" class="block px-4 py-2 text-gray-700 hover:bg-primary hover:text-white dark:text-gray-300 dark:hover:bg-purple">Pronunciation</a>
+                        </div>
+                    </div>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium">About</a>
+                    <a href="#events" class="nav-link text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium">Events</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium">Contact</a>
+                    
+                    <!-- Search Bar -->
+                    <div class="relative">
+                        <form id="search-form" class="flex items-center">
+                            <input type="text" id="search-input" placeholder="Search..." 
+                                   class="pl-4 pr-10 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                            <button type="submit" class="absolute right-3 text-gray-500 hover:text-accent dark:text-gray-300 dark:hover:text-purple">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                        <div id="search-results" class="search-results"></div>
+                    </div>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <div class="flex items-center">
+                        <span class="mr-2 text-sm text-gray-600 dark:text-gray-300"><i class="fas fa-sun"></i></span>
+                        <div class="relative inline-block w-10 mr-2 align-middle select-none">
+                            <input type="checkbox" id="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+                            <label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                        </div>
+                        <span class="text-sm text-gray-600 dark:text-gray-300"><i class="fas fa-moon"></i></span>
+                    </div>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="hamburger-menu text-gray-700 dark:text-gray-300 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-card-dark shadow-lg">
+            <div class="container mx-auto px-4 py-2">
+                <a href="#home" class="block py-2 text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium">Home</a>
+                <div class="py-2">
+                    <button class="flex items-center justify-between w-full text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium">
+                        <span>Materials</span>
+                        <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="pl-4 mt-1 hidden">
+                        <a href="materials.html#grammar" class="block py-2 text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple">Grammar</a>
+                        <a href="materials.html#vocabulary" class="block py-2 text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple">Vocabulary</a>
+                        <a href="materials.html#pronunciation" class="block py-2 text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple">Pronunciation</a>
+                    </div>
+                </div>
+                <a href="#about" class="block py-2 text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium">About</a>
+                <a href="#events" class="block py-2 text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium">Events</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium">Contact</a>
+                
+                <!-- Mobile Search -->
+                <div class="py-2">
+                    <form id="mobile-search-form" class="relative">
+                        <input type="text" id="mobile-search-input" placeholder="Search..." 
+                               class="w-full pl-4 pr-10 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                        <button type="submit" class="absolute right-3 top-2 text-gray-500 hover:text-accent dark:text-gray-300 dark:hover:text-purple">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                    <div id="mobile-search-results" class="search-results mt-1"></div>
+                </div>
+                
+                <div class="flex items-center justify-between py-2">
+                    <span class="text-gray-700 dark:text-gray-300">Theme:</span>
+                    <div class="flex items-center">
+                        <span class="mr-2 text-sm text-gray-600 dark:text-gray-300"><i class="fas fa-sun"></i></span>
+                        <div class="relative inline-block w-10 mr-2 align-middle select-none">
+                            <input type="checkbox" id="toggle-mobile" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+                            <label for="toggle-mobile" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                        </div>
+                        <span class="text-sm text-gray-600 dark:text-gray-300"><i class="fas fa-moon"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Welcome to AHU English Club</h1>
+            <p class="text-xl max-w-3xl mx-auto mb-8">Join our community to improve your English skills through interactive learning, cultural exchange, and fun activities.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="materials.html" class="bg-white hover:bg-opacity-90 text-accent font-bold py-3 px-6 rounded-full transition duration-300">Explore Materials</a>
+                <a href="#events" class="bg-transparent hover:bg-white hover:bg-opacity-10 border-2 border-white text-white font-bold py-3 px-6 rounded-full transition duration-300">Upcoming Events</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-accent dark:text-purple">Why Join Our Club?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg p-8 shadow-md transition-all duration-300 card-hover">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center text-white text-2xl mb-6 mx-auto">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-center">Comprehensive Resources</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-center">Access our extensive library of grammar guides, vocabulary lists, pronunciation exercises, and more.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg p-8 shadow-md transition-all duration-300 card-hover">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center text-white text-2xl mb-6 mx-auto">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-center">Supportive Community</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-center">Connect with fellow learners and native speakers in a friendly, encouraging environment.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg p-8 shadow-md transition-all duration-300 card-hover">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center text-white text-2xl mb-6 mx-auto">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-center">Regular Events</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-center">Participate in conversation clubs, movie nights, workshops, and cultural exchange activities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Materials Preview -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-accent dark:text-purple">Popular Learning Materials</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Material 1 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-white text-5xl">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-primary text-white text-xs px-3 py-1 rounded-full">Grammar</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2">Beginner</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">English Tenses Guide</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Master all 12 English tenses with clear explanations and practical examples.</p>
+                        <a href="materials.html#grammar" class="text-accent dark:text-purple font-medium hover:underline">View Resource</a>
+                    </div>
+                </div>
+                
+                <!-- Material 2 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="h-48 bg-gradient-to-r from-purple to-darkpurple flex items-center justify-center text-white text-5xl">
+                        <i class="fas fa-spell-check"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-secondary text-white text-xs px-3 py-1 rounded-full">Vocabulary</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2">Intermediate</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Academic Word List</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Essential vocabulary for academic reading and writing across disciplines.</p>
+                        <a href="materials.html#vocabulary" class="text-accent dark:text-purple font-medium hover:underline">View Resource</a>
+                    </div>
+                </div>
+                
+                <!-- Material 3 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="h-48 bg-gradient-to-r from-secondary to-accent flex items-center justify-center text-white text-5xl">
+                        <i class="fas fa-microphone-alt"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-purple text-white text-xs px-3 py-1 rounded-full">Pronunciation</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2">All Levels</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">IPA Pronunciation Guide</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Learn to pronounce English sounds correctly using the International Phonetic Alphabet.</p>
+                        <a href="materials.html#pronunciation" class="text-accent dark:text-purple font-medium hover:underline">View Resource</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="materials.html" class="inline-block bg-accent hover:bg-darkpurple text-white font-bold py-3 px-6 rounded-full transition duration-300">View All Materials</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events -->
+    <section id="events" class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-accent dark:text-purple">Upcoming Events</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Event 1 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="h-48 bg-gradient-to-r from-primary to-purple flex items-center justify-center text-white text-5xl">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-primary text-white text-xs px-3 py-1 rounded-full">Conversation</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2">Every Wednesday</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">English Conversation Club</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Practice speaking English in a relaxed environment with native speakers and fellow learners.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400"><i class="far fa-clock mr-1"></i> 6:00 PM - 7:30 PM</span>
+                            <a href="#events" class="text-accent dark:text-purple font-medium hover:underline">Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Event 2 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="h-48 bg-gradient-to-r from-secondary to-accent flex items-center justify-center text-white text-5xl">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-secondary text-white text-xs px-3 py-1 rounded-full">Movie Night</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2">June 15</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">English Movie Night</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Watch and discuss an English-language film with subtitles to improve listening skills.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400"><i class="far fa-clock mr-1"></i> 7:00 PM - 9:30 PM</span>
+                            <a href="#events" class="text-accent dark:text-purple font-medium hover:underline">Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Event 3 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="h-48 bg-gradient-to-r from-purple to-darkpurple flex items-center justify-center text-white text-5xl">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-purple text-white text-xs px-3 py-1 rounded-full">Workshop</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2">June 22</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Academic Writing Workshop</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Learn techniques for writing clear, coherent academic papers in English.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400"><i class="far fa-clock mr-1"></i> 4:00 PM - 6:00 PM</span>
+                            <a href="#events" class="text-accent dark:text-purple font-medium hover:underline">Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#events" class="inline-block bg-accent hover:bg-darkpurple text-white font-bold py-3 px-6 rounded-full transition duration-300">View All Events</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-accent dark:text-purple">About AHU English Club</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Our Mission</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        The AHU English Club was founded in 2010 with the goal of creating a supportive environment for students to improve their English language skills. 
+                        We believe that language learning should be engaging, interactive, and connected to real-world communication.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        Our club organizes regular activities, provides learning resources, and fosters cultural exchange between students from different backgrounds.
+                    </p>
+                    <h3 class="text-2xl font-bold mb-4">What We Offer</h3>
+                    <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mr-2 mt-1"></i>
+                            <span>Weekly conversation practice with native speakers</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mr-2 mt-1"></i>
+                            <span>Comprehensive learning materials for all levels</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mr-2 mt-1"></i>
+                            <span>Cultural exchange events and workshops</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mr-2 mt-1"></i>
+                            <span>Preparation for English proficiency tests</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-gradient-to-br from-primary to-secondary rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90120c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Students learning English" 
+                         class="w-full h-full object-cover opacity-90">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-accent dark:text-purple">What Our Members Say</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg p-8 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary bg-opacity-20 text-primary flex items-center justify-center mr-4">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Zhang Wei</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Computer Science Major</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 italic">"The conversation club helped me overcome my fear of speaking English. Now I can communicate confidently with international students!"</p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg p-8 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-secondary bg-opacity-20 text-secondary flex items-center justify-center mr-4">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Li Na</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Business Administration</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 italic">"The grammar materials are so well-organized. I finally understand those tricky tenses that confused me for years!"</p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg p-8 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-purple bg-opacity-20 text-purple flex items-center justify-center mr-4">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Wang Jing</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">International Relations</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 italic">"The pronunciation guide with IPA symbols was a game-changer for me. My English sounds much more natural now."</p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-accent dark:text-purple">Contact Us</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Get In Touch</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        Have questions about our club or events? Want to join or volunteer? We'd love to hear from you!
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-primary bg-opacity-20 text-primary flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Location</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Student Center, Room 302<br>Anhui University, Hefei</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-secondary bg-opacity-20 text-secondary flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Email</h4>
+                                <p class="text-gray-600 dark:text-gray-300">englishclub@ahu.edu.cn</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-purple bg-opacity-20 text-purple flex items-center justify-center mr-4">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Phone</h4>
+                                <p class="text-gray-600 dark:text-gray-300">+86 551 6386 1234</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-accent bg-opacity-20 text-accent flex items-center justify-center mr-4">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Office Hours</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Monday-Friday: 9:00 AM - 5:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Send Us a Message</h3>
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="name" class="block text-gray-700 dark:text-gray-300 mb-1">Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 dark:text-gray-300 mb-1">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-gray-700 dark:text-gray-300 mb-1">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-gray-700 dark:text-gray-300 mb-1">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="bg-accent hover:bg-darkpurple text-white font-bold py-3 px-6 rounded-full transition duration-300">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 gradient-bg text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Ready to Improve Your English?</h2>
+            <p class="text-xl max-w-3xl mx-auto mb-8">Join our community today and take your English skills to the next level!</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="bg-white hover:bg-opacity-90 text-accent font-bold py-3 px-6 rounded-full transition duration-300">Contact Us</a>
+                <a href="#about" class="bg-transparent hover:bg-white hover:bg-opacity-10 border-2 border-white text-white font-bold py-3 px-6 rounded-full transition duration-300">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white font-bold text-xl mr-2">AE</div>
+                        <span class="text-xl font-bold">AHU English Club</span>
+                    </div>
+                    <p class="text-gray-400">Improving English skills through community, resources, and cultural exchange since 2010.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-primary transition duration-300">Home</a></li>
+                        <li><a href="materials.html" class="text-gray-400 hover:text-primary transition duration-300">Materials</a></li>
+                        <li><a href="#events" class="text-gray-400 hover:text-primary transition duration-300">Events</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-primary transition duration-300">About</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-primary transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="materials.html#grammar" class="text-gray-400 hover:text-primary transition duration-300">Grammar</a></li>
+                        <li><a href="materials.html#vocabulary" class="text-gray-400 hover:text-primary transition duration-300">Vocabulary</a></li>
+                        <li><a href="materials.html#pronunciation" class="text-gray-400 hover:text-primary transition duration-300">Pronunciation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition duration-300">Writing Tips</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition duration-300">Recommended Books</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Subscribe to get updates on events and learning resources.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg focus:outline-none text-gray-800 w-full">
+                        <button type="submit" class="bg-primary hover:bg-opacity-90 text-white px-4 py-2 rounded-r-lg transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary transition duration-300"><i class="fab fa-weixin"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition duration-300"><i class="fab fa-weibo"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition duration-300"><i class="fab fa-qq"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition duration-300"><i class="fab fa-bilibili"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 AHU English Club. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-primary transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition duration-300">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition duration-300">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            menuBtn.classList.toggle('active');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Dark Mode Toggle
+        const toggle = document.getElementById('toggle');
+        const toggleMobile = document.getElementById('toggle-mobile');
+        const html = document.documentElement;
+        
+        // Check for saved user preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            html.classList.add('dark');
+            toggle.checked = true;
+            if (toggleMobile) toggleMobile.checked = true;
+        }
+        
+        // Toggle dark mode
+        function toggleDarkMode() {
+            html.classList.toggle('dark');
+            const isDark = html.classList.contains('dark');
+            localStorage.setItem('darkMode', isDark);
+        }
+        
+        toggle.addEventListener('change', toggleDarkMode);
+        if (toggleMobile) toggleMobile.addEventListener('change', toggleDarkMode);
+        
+        // Search functionality
+        const searchData = [
+            { title: "English Tenses Guide", category: "Grammar", link: "materials.html#grammar" },
+            { title: "Conditionals Explained", category: "Grammar", link: "materials.html#grammar" },
+            { title: "Articles (A/An/The)", category: "Grammar", link: "materials.html#grammar" },
+            { title: "Academic Word List", category: "Vocabulary", link: "materials.html#vocabulary" },
+            { title: "Business English Vocabulary", category: "Vocabulary", link: "materials.html#vocabulary" },
+            { title: "Common English Idioms", category: "Vocabulary", link: "materials.html#vocabulary" },
+            { title: "IPA Pronunciation Guide", category: "Pronunciation", link: "materials.html#pronunciation" },
+            { title: "American Accent Training", category: "Pronunciation", link: "materials.html#pronunciation" },
+            { title: "Tricky Sound Pairs", category: "Pronunciation", link: "materials.html#pronunciation" },
+            { title: "Conversation Club", category: "Event", link: "#events" },
+            { title: "Movie Night", category: "Event", link: "#events" },
+            { title: "Academic Writing Workshop", category: "Event", link: "#events" }
+        ];
+        
+        function highlightText(text, query) {
+            if (!query) return text;
+            const regex = new RegExp(query, 'gi');
+            return text.replace(regex, match => `<span class="search-highlight">${match}</span>`);
+        }
+        
+        function displaySearchResults(query, resultsContainer, inputField) {
+            resultsContainer.innerHTML = '';
+            
+            if (!query) {
+                resultsContainer.style.display = 'none';
+                return;
+            }
+            
+            const filteredResults = searchData.filter(item => 
+                item.title.toLowerCase().includes(query.toLowerCase()) || 
+                item.category.toLowerCase().includes(query.toLowerCase())
+            );
+            
+            if (filteredResults.length === 0) {
+                const noResults = document.createElement('div');
+                noResults.className = 'search-result-item';
+                noResults.textContent = 'No results found';
+                resultsContainer.appendChild(noResults);
+            } else {
+                filteredResults.forEach(result => {
+                    const resultItem = document.createElement('div');
+                    resultItem.className = 'search-result-item';
+                    resultItem.innerHTML = `
+                        <div class="font-bold">${highlightText(result.title, query)}</div>
+                        <div class="text-sm text-gray-500 dark:text-gray-400">${highlightText(result.category, query)}</div>
+                    `;
+                    resultItem.addEventListener('click', () => {
+                        window.location.href = result.link;
+                    });
+                    resultsContainer.appendChild(resultItem);
+                });
+            }
+            
+            resultsContainer.style.display = 'block';
+        }
+        
+        // Desktop search
+        const searchForm = document.getElementById('search-form');
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+        
+        searchForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (searchInput.value.trim()) {
+                window.location.href = `materials.html?search=${encodeURIComponent(searchInput.value)}`;
+            }
+        });
+        
+        searchInput.addEventListener('input', () => {
+            displaySearchResults(searchInput.value, searchResults, searchInput);
+        });
+        
+        searchInput.addEventListener('focus', () => {
+            if (searchInput.value) {
+                displaySearchResults(searchInput.value, searchResults, searchInput);
+            }
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!searchForm.contains(e.target)) {
+                searchResults.style.display = 'none';
+            }
+        });
+        
+        // Mobile search
+        const mobileSearchForm = document.getElementById('mobile-search-form');
+        const mobileSearchInput = document.getElementById('mobile-search-input');
+        const mobileSearchResults = document.getElementById('mobile-search-results');
+        
+        mobileSearchForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (mobileSearchInput.value.trim()) {
+                window.location.href = `materials.html?search=${encodeURIComponent(mobileSearchInput.value)}`;
+            }
+        });
+        
+        mobileSearchInput.addEventListener('input', () => {
+            displaySearchResults(mobileSearchInput.value, mobileSearchResults, mobileSearchInput);
+        });
+        
+        mobileSearchInput.addEventListener('focus', () => {
+            if (mobileSearchInput.value) {
+                displaySearchResults(mobileSearchInput.value, mobileSearchResults, mobileSearchInput);
+            }
+        });
+        
+        // Check for search query in URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchQuery = urlParams.get('search');
+        if (searchQuery) {
+            searchInput.value = searchQuery;
+            mobileSearchInput.value = searchQuery;
+        }
+    </script>
+</body>
+</html>

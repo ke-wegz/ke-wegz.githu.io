@@ -278,10 +278,10 @@
                     </div>
                     
                     <!-- Language Toggle -->
-                    <button id="language-toggle" class="language-toggle">
-                        <span class="en-text">EN</span>
-                        <i class="fas fa-exchange-alt"></i>
-                        <span class="ar-text">AR</span>
+                    <button id="language-toggle" class="language-toggle" style="background-color: #4a04c2;">
+                        <span class="en-text" style="color: #36bafd;">EN</span>
+                        <i class="fas fa-exchange-alt" style="color: #36bafd;"></i>
+                        <span class="ar-text" style="color: #36bafd;">AR</span>
                     </button>
                     
                     <!-- Dark Mode Toggle -->
@@ -338,10 +338,10 @@
                 <!-- Language Toggle Mobile -->
                 <div class="flex items-center justify-between py-2">
                     <span class="text-gray-700 dark:text-gray-300" data-i18n="language">Language:</span>
-                    <button id="mobile-language-toggle" class="language-toggle">
-                        <span class="en-text">EN</span>
-                        <i class="fas fa-exchange-alt"></i>
-                        <span class="ar-text">AR</span>
+                    <button id="mobile-language-toggle" class="language-toggle" style="background-color: #4a04c2;">
+                        <span class="en-text" style="color: #36bafd;">EN</span>
+                        <i class="fas fa-exchange-alt" style="color: #36bafd;"></i>
+                        <span class="ar-text" style="color: #36bafd;">AR</span>
                     </button>
                 </div>
                 
@@ -1058,6 +1058,25 @@
             searchInput.value = searchQuery;
             mobileSearchInput.value = searchQuery;
         }
+
+        // Close mobile menu when a link is clicked
+document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuBtn.classList.remove('active');
+    });
+});
+
+// Close mobile menu when clicking on dropdown chevron
+document.querySelectorAll('#mobile-menu button').forEach(button => {
+    button.addEventListener('click', (e) => {
+        // Only close if clicking the chevron (not the button text)
+        if (e.target.classList.contains('fa-chevron-down')) {
+            mobileMenu.classList.add('hidden');
+            menuBtn.classList.remove('active');
+        }
+    });
+});
     </script>
 </body>
 </html>

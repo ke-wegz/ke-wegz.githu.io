@@ -215,7 +215,7 @@
             <div class="flex justify-between items-center">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white font-bold text-xl mr-2">AE</div>
+                    <img src="img/favicon.png" height="60px" width="80px"></img>
                     <span class="text-xl font-bold text-accent dark:text-purple">AHU English Club</span>
                 </div>
                 
@@ -240,10 +240,10 @@
                     </a>
 
                     <!-- Language Toggle -->
-                    <button id="language-toggle" class="language-toggle">
-                        <span class="en-text">EN</span>
-                        <i class="fas fa-exchange-alt"></i>
-                        <span class="ar-text">AR</span>
+                    <button id="language-toggle" class="language-toggle" style="background-color: #4a04c2;">
+                        <span class="en-text" style="color: #36bafd;">EN</span>
+                        <i class="fas fa-exchange-alt" style="color: #36bafd;"></i>
+                        <span class="ar-text" style="color: #36bafd;">AR</span>
                     </button>
                     
                     <!-- Dark Mode Toggle -->
@@ -288,13 +288,13 @@
                 <a href="events.html" class="block py-2 text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium" data-i18n="events">Events</a>
                 <a href="contact.html" class="block py-2 text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium" data-i18n="contact">Contact</a>
                 
-                <!-- Language Toggle Mobile -->
-                <div class="flex items-center justify-between py-2">
+                 <!-- Language Toggle Mobile -->
+                 <div class="flex items-center justify-between py-2">
                     <span class="text-gray-700 dark:text-gray-300" data-i18n="language">Language:</span>
-                    <button id="mobile-language-toggle" class="language-toggle">
-                        <span class="en-text">EN</span>
-                        <i class="fas fa-exchange-alt"></i>
-                        <span class="ar-text">AR</span>
+                    <button id="mobile-language-toggle" class="language-toggle" style="background-color: #4a04c2;">
+                        <span class="en-text" style="color: #36bafd;">EN</span>
+                        <i class="fas fa-exchange-alt" style="color: #36bafd;"></i>
+                        <span class="ar-text" style="color: #36bafd;">AR</span>
                     </button>
                 </div>
                 
@@ -718,7 +718,7 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                     <div class="flex items-center mb-4">
-                        <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white font-bold text-xl mr-2">AE</div>
+                        <img src="img/favicon.png" height="60px" width="80px"></img>
                         <span class="text-xl font-bold">AHU English Club</span>
                     </div>
                     <p class="text-gray-400" data-i18n="footer_desc">Improving English skills through community, resources, and cultural exchange since 2010.</p>
@@ -824,9 +824,9 @@
                 "grammar_resources": "Grammar Resources",
                 "beginner": "Beginner",
                 "pdf_exercises": "PDF + Exercises",
-                "grammar1_title": "English Tenses Masterclass",
-                "grammar1_desc": "Comprehensive guide to all 12 English tenses with clear explanations, timelines, and practice exercises.",
-                "grammar1_pages": "15 pages",
+                "grammar1_title": "The infographic guide to grammar",
+                "grammar1_desc": "Comprehensive guide to all general English rules with clear explanations, and practice exercises.",
+                "grammar1_pages": "132 pages",
                 "download": "Download",
                 "intermediate": "Intermediate",
                 "interactive": "Interactive",
@@ -948,9 +948,9 @@
                 "grammar_resources": "موارد القواعد",
                 "beginner": "مبتدئ",
                 "pdf_exercises": "PDF + تمارين",
-                "grammar1_title": "دورة متكاملة في الأزمنة الإنجليزية",
-                "grammar1_desc": "دليل شامل لجميع الأزمنة الإنجليزية الـ12 مع تفسيرات واضحة وجداول زمنية وتمارين عملية.",
-                "grammar1_pages": "15 صفحة",
+                "grammar1_title": "The infographic guide to grammar",
+                "grammar1_desc": "دليل كامل لقواعد اللغة الإنجليزية مع شرح وأمثلة.",
+                "grammar1_pages": "132 صفحة",
                 "download": "تحميل",
                 "intermediate": "متوسط",
                 "interactive": "تفاعلي",
@@ -1156,6 +1156,30 @@
                 document.querySelector('a[href="#grammar"]').classList.add('active');
             }
         });
+
+        // Close mobile menu when a link is clicked
+document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuBtn.classList.remove('active');
+    });
+});
+
+// Mobile menu dropdown functionality
+document.querySelectorAll('#mobile-menu button').forEach(button => {
+    button.addEventListener('click', function() {
+        const dropdown = this.nextElementSibling;
+        if (dropdown.classList.contains('hidden')) {
+            dropdown.classList.remove('hidden');
+            this.querySelector('i').classList.remove('fa-chevron-down');
+            this.querySelector('i').classList.add('fa-chevron-up');
+        } else {
+            dropdown.classList.add('hidden');
+            this.querySelector('i').classList.remove('fa-chevron-up');
+            this.querySelector('i').classList.add('fa-chevron-down');
+        }
+    });
+});
     </script>
 </body>
 </html>

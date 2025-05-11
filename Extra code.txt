@@ -1,0 +1,226 @@
+
+<!-- Testimonials -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-accent dark:text-purple" data-i18n="testimonials_title">What Our Members Say</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg p-8 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-primary bg-opacity-20 text-primary flex items-center justify-center mr-4">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Zhang Wei</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="major_cs">Computer Science Major</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 italic" data-i18n="testimonial1">"The conversation club helped me overcome my fear of speaking English. Now I can communicate confidently with international students!"</p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg p-8 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-secondary bg-opacity-20 text-secondary flex items-center justify-center mr-4">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Li Na</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="major_business">Business Administration</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 italic" data-i18n="testimonial2">"The grammar materials are so well-organized. I finally understand those tricky tenses that confused me for years!"</p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg p-8 shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-purple bg-opacity-20 text-purple flex items-center justify-center mr-4">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Wang Jing</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="major_ir">International Relations</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 italic" data-i18n="testimonial3">"The pronunciation guide with IPA symbols was a game-changer for me. My English sounds much more natural now."</p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- Upcoming Events -->
+    <section id="events" class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-accent dark:text-purple" data-i18n="upcoming_events">Upcoming Events</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Event 1 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="h-48 bg-gradient-to-r from-primary to-purple flex items-center justify-center text-white text-5xl">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-primary text-white text-xs px-3 py-1 rounded-full" data-i18n="conversation">Conversation</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2" data-i18n="every_wednesday">Every Wednesday</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3" data-i18n="event1_title">English Conversation Club</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4" data-i18n="event1_desc">Practice speaking English in a relaxed environment with native speakers and fellow learners.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400"><i class="far fa-clock mr-1"></i> <span data-i18n="event1_time">6:00 PM - 7:30 PM</span></span>
+                            <a href="#events" class="text-accent dark:text-purple font-medium hover:underline" data-i18n="details">Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Event 2 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="h-48 bg-gradient-to-r from-secondary to-accent flex items-center justify-center text-white text-5xl">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-secondary text-white text-xs px-3 py-1 rounded-full" data-i18n="movie_night">Movie Night</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2" data-i18n="june_15">June 15</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3" data-i18n="event2_title">English Movie Night</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4" data-i18n="event2_desc">Watch and discuss an English-language film with subtitles to improve listening skills.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400"><i class="far fa-clock mr-1"></i> <span data-i18n="event2_time">7:00 PM - 9:30 PM</span></span>
+                            <a href="#events" class="text-accent dark:text-purple font-medium hover:underline" data-i18n="details">Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Event 3 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="h-48 bg-gradient-to-r from-purple to-darkpurple flex items-center justify-center text-white text-5xl">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-purple text-white text-xs px-3 py-1 rounded-full" data-i18n="workshop">Workshop</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2" data-i18n="june_22">June 22</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3" data-i18n="event3_title">Academic Writing Workshop</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4" data-i18n="event3_desc">Learn techniques for writing clear, coherent academic papers in English.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400"><i class="far fa-clock mr-1"></i> <span data-i18n="event3_time">4:00 PM - 6:00 PM</span></span>
+                            <a href="#events" class="text-accent dark:text-purple font-medium hover:underline" data-i18n="details">Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#events" class="inline-block bg-accent hover:bg-darkpurple text-white font-bold py-3 px-6 rounded-full transition duration-300" data-i18n="view_all_events">View All Events</a>
+            </div>
+        </div>
+    </section>
+
+                <a href="#events" class="inline-block bg-accent hover:bg-darkpurple text-white font-bold py-3 px-6 rounded-full transition duration-300" data-i18n="view_all_events">View All Events</a>
+
+                    <!-- Call to Action -->
+    <section class="py-16 gradient-bg text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6" data-i18n="cta_title">Ready to Improve Your English?</h2>
+            <p class="text-xl max-w-3xl mx-auto mb-8" data-i18n="cta_text">Join our community today and take your English skills to the next level!</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="bg-white hover:bg-opacity-90 text-accent font-bold py-3 px-6 rounded-full transition duration-300" data-i18n="contact_us">Contact Us</a>
+                <a href="#about" class="bg-transparent hover:bg-white hover:bg-opacity-10 border-2 border-white text-white font-bold py-3 px-6 rounded-full transition duration-300" data-i18n="learn_more">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+     <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-primary transition duration-300" data-i18n="privacy_policy">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition duration-300" data-i18n="terms">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition duration-300" data-i18n="sitemap">Sitemap</a>
+                </div>
+
+                                     <li><a href="#" class="text-gray-400 hover:text-primary transition duration-300" data-i18n="writing_tips">Writing Tips</a></li>
+
+
+ <!-- Grammar Resource 4 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-primary text-white text-xs px-3 py-1 rounded-full" data-i18n="beginner">Beginner</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2" data-i18n="cheat_sheet">Cheat Sheet</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3" data-i18n="grammar4_title">Articles (A/An/The)</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4" data-i18n="grammar4_desc">Simple rules and exceptions for using articles correctly in English sentences.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400"><i class="fas fa-file-alt mr-1"></i> <span data-i18n="grammar4_pages">5 pages</span></span>
+                            <a href="#" class="text-accent dark:text-purple font-medium hover:underline flex items-center">
+                                <span data-i18n="download">Download</span> <i class="fas fa-download ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grammar Resource 5 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-secondary text-white text-xs px-3 py-1 rounded-full" data-i18n="intermediate">Intermediate</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2" data-i18n="exercises">Exercises</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3" data-i18n="grammar5_title">Reported Speech</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4" data-i18n="grammar5_desc">Practice transforming direct speech into reported speech with our comprehensive worksheet.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400"><i class="fas fa-tasks mr-1"></i> <span data-i18n="grammar5_questions">20 questions</span></span>
+                            <a href="#" class="text-accent dark:text-purple font-medium hover:underline flex items-center">
+                                <span data-i18n="practice">Practice</span> <i class="fas fa-pencil-alt ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grammar Resource 6 -->
+                <div class="bg-white dark:bg-card-dark rounded-lg overflow-hidden shadow-md transition-all duration-300 card-hover">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-purple text-white text-xs px-3 py-1 rounded-full" data-i18n="advanced">Advanced</span>
+                            <span class="text-gray-500 dark:text-gray-400 text-sm ml-2" data-i18n="reference_guide">Reference Guide</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3" data-i18n="grammar6_title">Phrasal Verbs Collection</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4" data-i18n="grammar6_desc">200+ common phrasal verbs with meanings, examples, and contextual usage.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400"><i class="fas fa-book-open mr-1"></i> <span data-i18n="grammar6_pages">30 pages</span></span>
+                            <a href="#" class="text-accent dark:text-purple font-medium hover:underline flex items-center">
+                                <span data-i18n="view">View</span> <i class="fas fa-eye ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+                        <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-accent hover:bg-darkpurple text-white font-bold py-3 px-6 rounded-full transition duration-300" data-i18n="view_all_grammar">View All Grammar Resources</a>
+            </div>

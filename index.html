@@ -264,26 +264,16 @@
                     <a href="#about" class="nav-link text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium" data-i18n="about">About</a>
                     <a href="#events" class="nav-link text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium" data-i18n="events">Events</a>
                     <a href="#contact" class="nav-link text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium" data-i18n="contact">Contact</a>
-                    
-                    <!-- Search Bar -->
-                    <div class="relative">
-                        <form id="search-form" class="flex items-center">
-                            <input type="text" id="search-input" placeholder="Search..." 
-                                   class="pl-4 pr-10 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                            <button type="submit" class="absolute right-3 text-gray-500 hover:text-accent dark:text-gray-300 dark:hover:text-purple">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </form>
-                        <div id="search-results" class="search-results"></div>
-                    </div>
-                    
-                    <!-- Language Toggle -->
+                     
+                     <!-- Language Toggle -->
                     <button id="language-toggle" class="language-toggle" style="background-color: #4a04c2;">
                         <span class="en-text" style="color: #36bafd;">EN</span>
                         <i class="fas fa-exchange-alt" style="color: #36bafd;"></i>
                         <span class="ar-text" style="color: #36bafd;">AR</span>
                     </button>
-                    
+  
+                 
+                     
                     <!-- Dark Mode Toggle -->
                     <div class="flex items-center">
                         <span class="mr-2 text-sm text-gray-600 dark:text-gray-300"><i class="fas fa-sun"></i></span>
@@ -309,10 +299,11 @@
             <div class="container mx-auto px-4 py-2">
                 <a href="#home" class="block py-2 text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium" data-i18n="home">Home</a>
                 <div class="py-2">
-                    <button class="flex items-center justify-between w-full text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium">
+                    <a href="materials.html">
+                     <button class="flex items-center justify-between w-full text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium">
                         <span data-i18n="materials">Materials</span>
-                        <i class="fas fa-chevron-down ml-1 text-xs"></i>
-                    </button>
+                     </button>
+                    </a>
                     <div class="pl-4 mt-1 hidden">
                         <a href="materials.html#grammar" class="block py-2 text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple" data-i18n="grammar">Grammar</a>
                         <a href="materials.html#vocabulary" class="block py-2 text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple" data-i18n="vocabulary">Vocabulary</a>
@@ -323,19 +314,6 @@
                 <a href="#events" class="block py-2 text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium" data-i18n="events">Events</a>
                 <a href="#contact" class="block py-2 text-gray-700 hover:text-accent dark:text-gray-300 dark:hover:text-purple font-medium" data-i18n="contact">Contact</a>
                 
-                <!-- Mobile Search -->
-                <div class="py-2">
-                    <form id="mobile-search-form" class="relative">
-                        <input type="text" id="mobile-search-input" placeholder="Search..." 
-                               class="w-full pl-4 pr-10 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                        <button type="submit" class="absolute right-3 top-2 text-gray-500 hover:text-accent dark:text-gray-300 dark:hover:text-purple">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </form>
-                    <div id="mobile-search-results" class="search-results mt-1"></div>
-                </div>
-                
-                <!-- Language Toggle Mobile -->
                 <div class="flex items-center justify-between py-2">
                     <span class="text-gray-700 dark:text-gray-300" data-i18n="language">Language:</span>
                     <button id="mobile-language-toggle" class="language-toggle" style="background-color: #4a04c2;">
@@ -345,6 +323,7 @@
                     </button>
                 </div>
                 
+                <!-- Language Toggle Mobile -->
                 <div class="flex items-center justify-between py-2">
                     <span class="text-gray-700 dark:text-gray-300" data-i18n="theme">Theme:</span>
                     <div class="flex items-center">
@@ -534,7 +513,7 @@
                     </ul>
                 </div>
                 <div class="bg-gradient-to-br from-primary to-secondary rounded-lg overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1523050854058-8df90120c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                    <img src="https://static.vecteezy.com/system/resources/previews/023/803/006/non_2x/language-courses-or-school-online-distance-education-tiny-people-learning-english-with-smartphone-laptop-book-modern-flat-cartoon-style-illustration-on-white-background-vector.jpg" 
                          alt="Students learning English" 
                          class="w-full h-full object-cover opacity-90">
                 </div>
@@ -572,7 +551,7 @@
                             </div>
                             <div>
                                 <h4 class="font-bold" data-i18n="email">Email</h4>
-                                <p class="text-gray-600 dark:text-gray-300">ahuwebadm@gmail.com</p>
+                                <a href="mailto:ahuwebadm@gmail.com" target="A"><p class="text-gray-600 dark:text-gray-300" style="text-decoration: underline;">ahuwebadm@gmail.com</p></a>
                             </div>
                         </div>
                         
@@ -582,7 +561,7 @@
                             </div>
                             <div>
                                 <h4 class="font-bold" data-i18n="phone">Whatsapp</h4>
-                                <a href="https://chat.whatsapp.com/ImAGrWcsArYB5vA5VLJSYO" target="A"><p class="text-gray-600 dark:text-gray-300">Click here to join group</p></a>
+                                <a href="https://chat.whatsapp.com/ImAGrWcsArYB5vA5VLJSYO" target="A"><p class="text-gray-600 dark:text-gray-300" style="text-decoration: underline;">Click here to join group</p></a>
                             </div>
                         </div>
                         
